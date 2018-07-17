@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+@model IList<BlogWeb1.Models.Post>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <thead>
+                <tr>
+                    @foreach (var p in ViewBag.Post)
+                    {
+                        <td>@p.Titulo</td>
+                        <td>@p.Resumo</td>
+                        <td>@p.Categoria</td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var post in Model)
+                {
+                    <tr>
+                        <td>@post.Titulo</td>
+                        <td>@post.Resumo</td>
+                        <td>@post.Categoria</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
