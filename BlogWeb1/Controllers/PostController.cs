@@ -1,4 +1,5 @@
-﻿using BlogWeb1.Models;
+﻿using BlogWeb1.DAO;
+using BlogWeb1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace BlogWeb1.Controllers
     public class PostController : Controller
     {
         private IList<Post> lista;
+
+        public object PostDao { get; private set; }
 
         public PostController()
         {
@@ -25,6 +28,8 @@ namespace BlogWeb1.Controllers
         // GET: Post
         public ActionResult Index()
         {
+            PostDAO dao = new PostDAO();
+            IList<Post> lista = dao.Lista();
             return View(lista);
         }
 
