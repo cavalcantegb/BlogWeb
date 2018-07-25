@@ -42,8 +42,9 @@ namespace BlogWeb1.Controllers
         [HttpPost]
         public ActionResult Adiciona(Post post)
         {
-            lista.Add(post);
-            return View("Index", lista);
+            PostDAO dao = new PostDAO();
+            dao.Adiciona(post);
+            return RedirectToAction("Index");
         }
     }
 }
