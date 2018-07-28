@@ -15,20 +15,23 @@
         <table>
             <thead>
                 <tr>
-                        <td>Título</td>
-                        <td>Resumo</td>
-                        <td>Categoria</td>
+                    <td></td>
+                    <td>Título</td>
+                    <td>Resumo</td>
+                    <td>Categoria</td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var post in Model)
                 {
-                    <tr>
-                        <td>@post.Titulo</td>
-                        <td>@post.Resumo</td>
-                        <td>@post.Categoria</td>
-                        <td><a href="/Post/Remove/@post.Id">Remover</a></td>
-                    </tr>
+                <tr>
+                    <td><a href="/Post/Vizualisa/@post.Id">Editar</a></td>
+                    <td>@post.Titulo</td>
+                    <td>@post.Resumo</td>
+                    <td>@post.Categoria</td>
+                    <td><a href="/Post/Remove/@post.Id">Remover</a></td>
+                </tr>
                 }
             </tbody>
         </table>

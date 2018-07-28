@@ -60,5 +60,20 @@ namespace BlogWeb1.Controllers
             dao.Remove(id);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Vizualisa(int id)
+        {
+            PostDAO dao = new PostDAO();
+            Post post = dao.BuscaPorId(id);
+            return View(post);
+        }
+
+        [HttpPost]
+        public ActionResult Edita(Post post)
+        {
+            PostDAO dao = new PostDAO();
+            dao.Atualiza(post);
+            return RedirectToAction("Index");
+        }
     }
 }

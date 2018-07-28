@@ -2,6 +2,7 @@
 using BlogWeb1.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -43,6 +44,24 @@ namespace BlogWeb1.DAO
             {
                 var post = contexto.Posts.Find(id);
                 contexto.Posts.Remove(post);
+                contexto.SaveChanges();
+            }
+        }
+
+        public Post BuscaPorId(int id)
+        {
+            using (BlogContext contexto = new BlogContext())
+            {
+                var post = contexto.Posts.Find(id);
+                return post;
+            }
+        }
+
+        public void Atualiza(Post post)
+        {
+            using (BlogContext contexto = new BlogContext())
+            {
+                contexto.Entry(post).State = EntityState.Modified;
                 contexto.SaveChanges();
             }
         }
