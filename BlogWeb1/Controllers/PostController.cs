@@ -47,11 +47,18 @@ namespace BlogWeb1.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Categoria([Bind(Prefix ="id")] string categoria)
+        public ActionResult Categoria([Bind(Prefix = "id")] string categoria)
         {
             PostDAO dao = new PostDAO();
             IList<Post> lista = dao.FiltraPorCategoria(categoria);
             return View("Index", lista);
+        }
+
+        public ActionResult Remove(int id)
+        {
+            PostDAO dao = new PostDAO();
+            dao.Remove(id);
+            return RedirectToAction("Index");
         }
     }
 }

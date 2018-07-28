@@ -36,5 +36,15 @@ namespace BlogWeb1.DAO
                 return lista;
             }
         }
+
+        public void Remove(int id)
+        {
+            using (BlogContext contexto = new BlogContext())
+            {
+                var post = contexto.Posts.Find(id);
+                contexto.Posts.Remove(post);
+                contexto.SaveChanges();
+            }
+        }
     }
 }
