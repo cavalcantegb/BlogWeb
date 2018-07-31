@@ -69,7 +69,7 @@ namespace BlogWeb1.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Vizualisa(int id)
+        public ActionResult Visualiza(int id)
         {
             PostDAO dao = new PostDAO();
             Post post = dao.BuscaPorId(id);
