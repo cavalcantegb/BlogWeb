@@ -96,5 +96,13 @@ namespace BlogWeb1.Controllers
             dao.Publica(id);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult CategoriaAutocomplete(string termoDigitado)
+        {
+            PostDAO dao = new PostDAO();
+            var model = dao.ListaCategoriaQueContemTermo(termoDigitado);
+            return Json(model);
+        }
     }
 }

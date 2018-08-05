@@ -76,5 +76,18 @@ namespace BlogWeb1.DAO
                 contexto.SaveChanges();
             }
         }
+
+        public IList<string> ListaCategoriaQueContemTermo(string termoDigitado)
+        {
+            using (var contexto = new BlogContext())
+            {
+                return contexto.Posts.
+                    Where(p => p.Categoria.Contains(termoDigitado)).
+                    Select(p => p.Categoria).
+                    Distinct().
+                    ToList();
+
+            }
+        }
     }
 }
